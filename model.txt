@@ -1,0 +1,23 @@
+NODE_1, Type: input, Activation: sigmoid, Activation Response: 1.47951910795633, Position: NPosition(x: 100.0, y: 0.0, z: 0.0)
+NODE_2, Type: input, Activation: sigmoid, Activation Response: 0.985795634562568, Position: NPosition(x: 200.0, y: 0.0, z: 0.0)
+NODE_3, Type: bias, Activation: sigmoid, Activation Response: 1.0, Position: NPosition(x: -100.0, y: 0.0, z: 0.0)
+NODE_4, Type: output, Activation: sigmoid, Activation Response: 3.27263159904923, Position: NPosition(x: 50.0, y: 200.0, z: 0.0)
+NODE_6, Type: hidden, Activation: square, Activation Response: 3.25623471575236, Position: NPosition(x: 125.0, y: 100.0, z: 400.0)
+NODE_9, Type: hidden, Activation: add, Activation Response: 1.27297060000081, Position: NPosition(x: 162.5, y: 50.0, z: 200.0)
+NODE_14, Type: hidden, Activation: sigmoid, Activation Response: 0.697215512673654, Position: NPosition(x: 143.75, y: 75.0, z: 300.0)
+NODE_7, Type: hidden, Activation: cube, Activation Response: 1.0, Position: NPosition(x: 87.5, y: 150.0, z: 600.0)
+
+Innovation_1, [ from=1 : to=4 ], Enabled: true, Recurrent: false, Weight: -4.58104656533828 --
+Innovation_2, [ from=2 : to=4 ], Enabled: true, Recurrent: false, Weight: 1.92687223826695 --
+Innovation_3, [ from=3 : to=4 ], Enabled: true, Recurrent: false, Weight: 1.0 --
+Innovation_6, [ from=2 : to=6 ], Enabled: true, Recurrent: false, Weight: 1.0 --
+Innovation_7, [ from=6 : to=4 ], Enabled: true, Recurrent: false, Weight: 2.08908461408901 --
+Innovation_8, [ from=3 : to=6 ], Enabled: true, Recurrent: false, Weight: 1.0 --
+Innovation_10, [ from=1 : to=6 ], Enabled: true, Recurrent: false, Weight: -1.84819092202191 --
+Innovation_12, [ from=6 : to=7 ], Enabled: true, Recurrent: false, Weight: 1.0 --
+Innovation_13, [ from=7 : to=4 ], Enabled: true, Recurrent: false, Weight: 2.88908461408901 --
+Innovation_16, [ from=2 : to=9 ], Enabled: true, Recurrent: false, Weight: 1.0 --
+Innovation_17, [ from=9 : to=6 ], Enabled: true, Recurrent: false, Weight: 0.2 --
+Innovation_27, [ from=9 : to=14 ], Enabled: true, Recurrent: false, Weight: 1.0 --
+Innovation_28, [ from=14 : to=6 ], Enabled: true, Recurrent: false, Weight: -0.6 --
+Innovation_45, [ from=14 : to=4 ], Enabled: true, Recurrent: false, Weight: -1.59125808197801 --
