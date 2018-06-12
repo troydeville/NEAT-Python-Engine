@@ -1,24 +1,61 @@
+import RPi.GPIO as GPIO
 from Engine import Engine
-import re
 
+#################################################################################
+#
 # This project was created for processing a NEAT model on the Raspberry Pi.
 # To create a model, use the "NEAT-swift" implementation on github:
 #             "https://github.com/troydeville/NEAT-swift"
 # Simply load a configuration file, which is generated
 #   by printing the Genome's description, and run inputs.
+#
+# The model is just a text file with the genome's description pasted in it.
+#
+#################################################################################
 
-confURL = "model.txt"
+# Component Definitions ->  [ 000, 001, 010, 011, 100, 101, 110, 111 ] LSB Right
+LED = 25
+SWITCH_1 = 14
+SWITCH_2 = 15
 
-engine = Engine(confURL)
+# GPIO Setup
+GPIO.setmode(GPIO.BCM)
 
-# Run engine's expected input
-output1 = engine.run([0.0, 0.0])
-output2 = engine.run([0.0, 1.0])
-output3 = engine.run([1.0, 0.0])
-output4 = engine.run([1.0, 1.0])
+GPIO.setup(LED, GPIO.OUT)
+GPIO.setup(SWITCH_1, GPIO.IN)
+GPIO.setup(SWITCH_2, GPIO.IN)
 
-# Get output
-print(output1)
-print(output2)
-print(output3)
-print(output4)
+# NEAT-Python-Engine
+engine = Engine("model.txt")
+
+def main():
+
+    # Get input from switches
+    msbOn = GPIO.input(SWITCH_1)
+    lsbOn = GPIO.input(SWITCH_2)
+
+    msb = 0.0
+    lsb = 0.0
+
+    if msbOn:
+        msb = 1.0
+
+    if lsbOn:
+        lsb = 1.0
+
+    result = engine.run([msb, lsb])
+
+    if result > 0.5:
+        GPIO.output(LED, GPIO.HIGH)
+    else:
+        GPIO.output(LED, GPIO.LOW)
+
+
+
+# Run here
+while True:
+    main()
+
+
+
+
