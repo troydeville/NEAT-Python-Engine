@@ -14,6 +14,11 @@ from Engine import Engine
 #
 #################################################################################
 
+# Components
+# (1) - LED
+# (2) - push buttons
+# (2) - 10K Ohm Resistors
+
 # Component Definitions ->  [ 000, 001, 010, 011, 100, 101, 110, 111 ] LSB Right
 LED = 25
 SWITCH_1 = 14
