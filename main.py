@@ -1,3 +1,4 @@
+from time import sleep
 import RPi.GPIO as GPIO
 from Engine import Engine
 
@@ -29,7 +30,7 @@ GPIO.setup(SWITCH_2, GPIO.IN)
 engine = Engine("model.txt")
 
 def main():
-
+    
     # Get input from switches
     msbOn = GPIO.input(SWITCH_1)
     lsbOn = GPIO.input(SWITCH_2)
@@ -50,11 +51,16 @@ def main():
     else:
         GPIO.output(LED, GPIO.LOW)
 
+    # take it easy
+    sleep(0.01)
 
 
 # Run here
 while True:
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit()
 
 
 
