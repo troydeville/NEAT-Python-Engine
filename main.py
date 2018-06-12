@@ -45,6 +45,7 @@ def main():
         lsb = 1.0
 
     result = engine.run([msb, lsb])
+    print(result)
 
     if result[0] > 0.5:
         GPIO.output(LED, GPIO.HIGH)
@@ -52,7 +53,7 @@ def main():
         GPIO.output(LED, GPIO.LOW)
 
     # take it easy
-    sleep(0.01)
+    sleep(0.03)
 
 
 # Run here
